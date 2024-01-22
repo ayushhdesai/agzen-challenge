@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="taskbar">
+        <!-- Company logo on the left -->
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Company Logo" class="company-logo">
+        </div>
+
+        <!-- Settings and Menu icons on the right -->
+        <div class="icon-container">
+            <img src="{{ url_for('static', filename='settings-icon.png') }}" alt="Settings" class="icon">
+            <img src="{{ url_for('static', filename='menu-icon.png') }}" alt="Menu" class="icon">
+        </div>
+    </div>
+    <div class="grid-container">
+        <div class="left-panel">
+            <!--Image Grid-->
+            <div id="image-container" class="grid-item">
+            </div>
+            <!--Status Grid--> 
+            <div id="status-indicators" class="grid-item status-panel">
+                <p>Status Indicators:</p>
+                <p>Speed: <span id="speed-indicator">-</span>,
+                GPA: <span id="gpa-indicator">-</span>,
+                Boom: <span id="boom-indicator">-</span></p>
+                <div><label>Enhance  </label><label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label></div>
+            </div>            
+        </div>
+        <!--Chart Grid-->
+        <div id="chart-container" class="grid-item">
+            <canvas id="metric-history-chart"></canvas>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
